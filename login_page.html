@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/login_page.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login_Page</title>
+  </head>
+  <body>
+    <div class="container">
+        <img src="./styles/icons/Ellipse.png" alt="ellipse" class="bg-ellipse">
+        <img src="./styles/icons/righthalf ellipse.png" alt="ellipse" class="bg-ellipse2">
+        <img src="./styles/icons/top ecllipse.png" alt="ecllipse" class="bg-ellipse3">
+      <div class="form_container">
+        <div class="profile_icon">
+          <img src="./styles/icons/head_icon.png" alt="profile-icon" />
+        </div>
+        <form id="signUp_form" class="hidden"action="login_page.html" method="post">
+          <h2>Sign Up</h2>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <label for="confirm_password"">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required />
+            <div class="button_wrapper">
+
+                <button type="submit">Sign up</button>
+            </div>
+            <p>Already have an account? <a href="#" id="backToLogin">Back to Login</a></p>
+
+        </form>
+        <form action="home_page.html" method="post" id="login_form">
+          <h2>Log In</h2>
+          <label for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" name="username" required />
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" required />
+          <div class="button_wrapper">
+            <button type="submit">Log In</button>
+          </div>
+          
+          <p>Don't have an account? <a href="#" id="registerLink">Register</a></p>
+        </form>
+      </div>
+      <div class="logo_container">
+        <img src="./styles/icons/logo.svg" alt="Logo" class="logo" />
+      </div>
+    </div>
+  </body>
+  <script>
+    const registerLink = document.getElementById("registerLink");
+    const backToLogin = document.getElementById("backToLogin");
+    const signUpForm = document.getElementById("signUp_form");
+    const loginForm = document.getElementById("login_form");
+
+    registerLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      loginForm.classList.add("hidden");
+      signUpForm.classList.remove("hidden");
+    });
+
+    backToLogin.addEventListener("click", function (event) {
+      event.preventDefault();
+      signUpForm.classList.add("hidden");
+      loginForm.classList.remove("hidden");
+    });
+  </script>
+</html>

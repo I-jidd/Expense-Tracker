@@ -1,0 +1,122 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: #faf9f6;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.form_container {
+  background-color: #ff6b6b;
+  /* padding: 20px; */
+  padding: 60px 65px 65px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* display: none; */
+}
+.hidden {
+  display: none;
+}
+.logo_container img {
+  width: 800px;
+  height: 600px;
+}
+.profile_icon {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.profile_icon img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+label {
+  font-size: 22px;
+  font-weight: 500;
+}
+form {
+  /* padding: 50px; */
+  margin-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+input {
+  margin: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+  width: 250px;
+  height: 28px;
+}
+.button_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin-top: 50px;
+  padding: 15px;
+  width: 200px;
+  border: none;
+  align-items: center;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #47e6c1, #47d0e6);
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: 500;
+  font-size: 20px;
+}
+button:hover {
+  background: linear-gradient(135deg, #3cd9b7, #3ac7d4);
+}
+
+.bg-ellipse {
+  position: absolute;
+  bottom: 0px;
+  right: 393px;
+  /* opacity: 0.1; */
+  z-index: 0;
+  pointer-events: none;
+}
+.bg-ellipse2 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  right: 0px;
+}
+.bg-ellipse3 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  top: 0px;
+  right: 790px;
+}
+
+/* .icon {
+  width: 15px;
+  height: 15px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15'%3E%3Cpath fill='currentColor' d='M4.5 0h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .854.354L2.5 3.207l11.646 11.647l.708-.708L3.207 2.5L4.854.854A.5.5 0 0 0 4.5 0'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+} */
