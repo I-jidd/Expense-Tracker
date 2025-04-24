@@ -65,6 +65,7 @@ input {
   outline: none;
   width: 250px;
   height: 28px;
+  font-size: 18px;
 }
 .button_wrapper {
   display: flex;
