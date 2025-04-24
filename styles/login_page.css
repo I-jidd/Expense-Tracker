@@ -1,5 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 .container {
   display: flex;
@@ -112,7 +114,26 @@ button:hover {
   top: 0px;
   right: 790px;
 }
-
+.bg-ellipse4 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  left: 0px;
+}
+.bg-ellipse5 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  top: 0px;
+  left: 400px;
+}
+.bg-ellipse6 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  left: 650px;
+  bottom: 150px;
+}
 /* .icon {
   width: 15px;
   height: 15px;

@@ -15,11 +15,16 @@
         <img src="./styles/icons/Ellipse.png" alt="ellipse" class="bg-ellipse">
         <img src="./styles/icons/righthalf ellipse.png" alt="ellipse" class="bg-ellipse2">
         <img src="./styles/icons/top ecllipse.png" alt="ecllipse" class="bg-ellipse3">
+        <img src="./styles/icons/right blue ellipse.png" alt="ellipse" class="bg-ellipse4">
+        <img src="./styles/icons/top blue ellipse.png" alt="ellipse" class="bg-ellipse5">
+        <img src="./styles/icons/whole blue.png" alt="ellipse" class="bg-ellipse6">
       <div class="form_container">
         <div class="profile_icon">
           <img src="./styles/icons/head_icon.png" alt="profile-icon" />
         </div>
-        <form id="signUp_form" class="hidden"action="login_page.html" method="post">
+
+        <!-- sign up form  -->
+        <form id="signup" class="hidden"action="./php/signup.php" method="post">
           <h2>Sign Up</h2>
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required />
@@ -32,9 +37,10 @@
                 <button type="submit">Sign up</button>
             </div>
             <p>Already have an account? <a href="#" id="backToLogin">Back to Login</a></p>
-
         </form>
-        <form action="home_page.html" method="post" id="login_form">
+        
+        <!-- login form  -->
+        <form action="./php/login.php" method="post" id="login_form">
           <h2>Log In</h2>
           <label for="loginUsername">Username</label>
           <input type="text" id="loginUsername" name="username" required />
@@ -55,7 +61,7 @@
   <script>
     const registerLink = document.getElementById("registerLink");
     const backToLogin = document.getElementById("backToLogin");
-    const signUpForm = document.getElementById("signUp_form");
+    const signUpForm = document.getElementById("signup");
     const loginForm = document.getElementById("login_form");
 
     registerLink.addEventListener("click", function (event) {
