@@ -54,7 +54,7 @@
         </form>
       </div>
       <div class="logo_container">
-        <img src="./styles/icons/logo.svg" alt="Logo" class="logo" />
+        <a href="./landing_page.html"><img src="./styles/icons/logo.svg" alt="Logo" class="logo" /></a>
       </div>
     </div>
   </body>
@@ -63,17 +63,32 @@
     const backToLogin = document.getElementById("backToLogin");
     const signUpForm = document.getElementById("signup");
     const loginForm = document.getElementById("login_form");
-
-    registerLink.addEventListener("click", function (event) {
-      event.preventDefault();
+  
+    function showSignupForm() {
       loginForm.classList.add("hidden");
       signUpForm.classList.remove("hidden");
-    });
-
-    backToLogin.addEventListener("click", function (event) {
-      event.preventDefault();
+    }
+  
+    function showLoginForm() {
       signUpForm.classList.add("hidden");
       loginForm.classList.remove("hidden");
+    }
+  
+    // Check if signup is requested via URL
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("signup") === "true") {
+      showSignupForm();
+    }
+  
+    registerLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      showSignupForm();
+    });
+  
+    backToLogin.addEventListener("click", function (event) {
+      event.preventDefault();
+      showLoginForm();
     });
   </script>
+  
 </html>

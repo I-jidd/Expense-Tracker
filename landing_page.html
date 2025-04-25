@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/landing_page.css" />
+    <title>Epxense Tracker</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="logo">
+      <img src="./styles/icons/logo.svg" alt="logo" />
+      <p><span id="typing-text"></span></p>
+      <div class="button-group">
+        <button id="create-account" class="action-btn">Create Account</button>
+        <button id="login" class="action-btn">Login</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const text = "Know where it goes";
+    const typingElement = document.getElementById("typing-text");
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      if (isDeleting) {
+        typingElement.textContent = text.substring(0, index--);
+        if (index < 0) isDeleting = false;
+      } else {
+        typingElement.textContent = text.substring(0, index++);
+        if (index > text.length) isDeleting = true;
+      }
+      setTimeout(typeEffect, isDeleting ? 50 : 120);
+    }
+
+    typeEffect();
+
+    document.getElementById("login").addEventListener("click", function () {
+      window.location.href = "login_page.html";
+    });
+    document
+      .getElementById("create-account")
+      .addEventListener("click", function () {
+        window.location.href = "login_page.html?signup=true";
+      });
+  </script>
+</html>
