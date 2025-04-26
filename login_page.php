@@ -1,3 +1,12 @@
+<!-- to alert if credentials are wrong and redirect to login page if successful -->
+<?php
+  session_start();
+  if (isset($_SESSION['error']) && isset($_SESSION['error'])) {
+    echo "<script type='text/javascript'>alert('".$_SESSION['error']."');</script>";
+    unset($_SESSION['error']);
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <title>Login_Page</title>
+    <title>Login Page</title>
   </head>
   <body>
     <div class="container">
@@ -17,7 +26,7 @@
         <img src="./styles/icons/top ecllipse.png" alt="ecllipse" class="bg-ellipse3">
         <img src="./styles/icons/right blue ellipse.png" alt="ellipse" class="bg-ellipse4">
         <img src="./styles/icons/top blue ellipse.png" alt="ellipse" class="bg-ellipse5">
-        <img src="./styles/icons/whole blue.png" alt="ellipse" class="bg-ellipse6">
+        <!-- <img src="./styles/icons/whole blue.png" alt="ellipse" class="bg-ellipse6"> -->
       <div class="form_container">
         <div class="profile_icon">
           <img src="./styles/icons/head_icon.png" alt="profile-icon" />

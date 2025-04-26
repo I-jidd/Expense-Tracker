@@ -7,7 +7,7 @@
         $password = $_POST['password'];
         // $password = md5($password); // Encrypt the password
 
-        $sql = "SELECT * FROM user WHERE username='$username'";
+        $sql = "SELECT * FROM users WHERE username='$username'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -21,10 +21,14 @@
                 exit();
             }
             else {
-                echo "Incorrect password.";
-                // echo "<script type='text/javascript'>alert('Incorrect password');</script>";
+                $_SESSION['error'] = "Incorreect password";
+                header("Location: ../login_page.php");
+                exit();
             }
         } else{
-            echo "<script type='text/javascript'>alert('Username not found');</script>";
+            $_SESSION['error'] = "Username not found";
+            header("Location: ../login_page.php");
+            exit();
         }
     }
+    $conn->close();

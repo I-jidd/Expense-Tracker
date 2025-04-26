@@ -130,7 +130,7 @@ button:hover {
 .bg-ellipse6 {
   position: absolute;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   left: 650px;
   bottom: 150px;
 }

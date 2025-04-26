@@ -19,7 +19,7 @@
         <li><a href="#">Profile</a></li>
         <li><a href="#">Add Expense</a></li>
         <li><a href="#">Categories</a></li>
-        <li><a href="login_page.html">Logout</a></li>
+        <li><a href="login_page.php">Logout</a></li>
       </ul>
     </nav>
     <!-- fetching data from the database -->
