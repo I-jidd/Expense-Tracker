@@ -30,13 +30,35 @@
         header("Location: login_page.html");
         exit();
       }
+      
+      // fetch all expenses for the logged-in user
+      require_once './php/includes/connection.php';
       $username = $_SESSION['username'];
+
+      $sql = "SELECT * FROM expenses WHERE expense_id = (SELECT id FROM users WHERE username = '$username')";
+      $result = $conn->query($sql);
+      
     ?>
     <div class="container-details">
       <div class="background"></div>
       <h1>HI, <?php echo strtoupper($username)?>!</h1>
-      <h2 class="date">Date: April 17, 2023</h2>
-      <h2 class = "total">Total Expense this Month:  3045.00 php</h2>
+      <h2 class="date">Date: <?php echo date('F j, Y'); ?></h2>
+      <?php
+        // Fetch total expenses for the current month
+        $month = date('m'); // current month (e.g., 04)
+        $year = date('Y');  // current year (e.g., 2025)
+
+        $total_sql = "SELECT SUM(amount) AS total 
+                      FROM expenses 
+                      WHERE expense_id = (SELECT id FROM users WHERE username = '$username')
+                      AND MONTH(date) = '$month' 
+                      AND YEAR(date) = '$year'";
+
+        $total_result = $conn->query($total_sql);
+        $total_row = $total_result->fetch_assoc();
+        $total_expense = $total_row['total'] ?? 0; // if null, fallback to 0
+      ?>
+      <h2 class="total">Total Expense this Month: <?php echo number_format($total_expense, 2); ?> PHP</h2>
     </div>
 
     <!-- table -->
@@ -51,15 +73,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td >2025-04-23</td>
-          <td >Food</td>
-          <td >Lunch at cafe</td>
-          <td >150.00</td>
-          <td >
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-          </td>
-        </tr>
+        <?php 
+          if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+              echo "<tr>";
+              echo "<td>" . $row['date'] . "</td>";
+              echo "<td>" . $row['category'] . "</td>";
+              echo "<td>" . $row['description'] . "</td>";
+              echo "<td>" . $row['amount'] . "</td>";
+              echo "<td>
+                      <button class='edit'>Edit</button>
+                      <button class='delete'>Delete</button>
+                    </td>";
+              echo "</tr>";
+            }
+          } else {
+            echo "<tr><td colspan='5' style='text-align: center;'>No expenses found.</td></tr>";
+          }
+          $conn->close();
+        ?>
   </body>
 </html>
